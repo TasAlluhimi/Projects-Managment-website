@@ -4,9 +4,9 @@ import pm from '../assets/pm.jpg'
 
 function NavPar() {
 
-    const user = localStorage.getItem('user')
+  const user = localStorage.getItem('user')
   const userData = JSON.parse(user);
-  const loggedIn = localStorage.getItem('isLoggIn');
+  const [isLoggIn, setIsLoggIn] = useState(localStorage.getItem('isLoggIn'))
 
     const navigate = useNavigate()
 
@@ -19,6 +19,7 @@ function NavPar() {
 
     const sign_out = () => {
         localStorage.clear()
+        setIsLoggIn(false)
         setShowUserMenu(false);
     };
 
@@ -57,7 +58,7 @@ function NavPar() {
         </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           
-        {loggedIn ? (
+        {isLoggIn ? (
             
             
             <div className='flex justify-center items-center gap-3'>
@@ -125,30 +126,30 @@ function NavPar() {
             <li>
             </li>
 
-            {loggedIn? 
+            {isLoggIn? 
            
             <li>
               <Link
-                to="/"
+                to="/ProjectSection"
                 className={`block py-2 px-3 md:p-0 rounded 
                 md:dark:hover:bg-transparent `}
               >
-                a
+                Project Section
               </Link>
             </li>
             :''}
 
-              {loggedIn? 
+              {/* {isLoggIn? 
              <li>
              <Link
                to="/"
                className={`block py-2 px-3 md:p-0 rounded 
                md:dark:hover:bg-transparent `}
              >
-               b
+               Track your request
              </Link>
            </li>
-           :''}
+           :''} */}
 
            
             

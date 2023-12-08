@@ -192,7 +192,7 @@ function SignIn() {
                 className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md 
                 text-white bg-[#1B4242] hover:bg-[#5C8374] focus:outline-none focus:border-gray-950 focus:shadow-outline-indigo
                 active:bg-gray-900 transition duration-150 ease-in-out">
-                Create account
+                Sign in
             </button>
                     </span>
                 </div>
