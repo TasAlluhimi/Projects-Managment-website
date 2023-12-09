@@ -2,6 +2,7 @@ import React from 'react'
 import NavPar from '../Componenets/NavPar'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import Footer from '../Componenets/Footer'
 
 
 function ProjectSection() {
@@ -10,7 +11,9 @@ function ProjectSection() {
     const userData = JSON.parse(user)
     const [isLoggIn, setIsLoggIn] = React.useState(localStorage.getItem('isLoggIn'))
     const [project, setProject] = React.useState([])
+    const [reject_reason, setReject_reason] = React.useState('')
     const [status, setStatus] = React.useState('')
+    const [hide, setHide] = React.useState('')
     const navigate = useNavigate()
 
     // console.log(userData.id);
@@ -20,11 +23,14 @@ function ProjectSection() {
         
     }, [])
 
+    console.log(reject_reason);
     const getData = ()=>{
         axios.get(`https://65730c11192318b7db417733.mockapi.io/users/${userData.id}`)
         .then((res)=>{
-            // console.log(res.data.status);
+            // console.log(res.data.hide);
+            setHide(res.data.hide);
             setStatus(res.data.status);
+            setReject_reason(res.data.reject_reason);
             setProject(res.data.project);
         })
     }
@@ -36,7 +42,10 @@ function ProjectSection() {
             project_description: '',
             project_image: '',
             // improved: 'waiting',
-          }
+          },
+          reject_reason: '',
+          hide: 'false',
+          status: 'waiting',
       })
       .then((response)=>{
           console.log("project deleted");
@@ -51,19 +60,63 @@ function ProjectSection() {
         <NavPar/>
 
         <div>
+        <p class="text-left text-[#1B4242] font-extrabold uppercase p-10 mt-10">Project Details</p>
+
+{/* <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10"> */}
+
+{project.length === 0 || project.project_name == '' ? 
+
+
+<div className='h-screen'>
+
+
+<div className='p-10'>
+    Add a project first! <span 
+    className='font-medium text-[rgb(92,131,116)] hover:text-[#1B4242] focus:outline-none focus:underline transition 
+    ease-in-out duration-150'>
+        <Link to='/Add'>Click here to add</Link></span>
+</div>
+</div>
+
+:  
+
+( 
+<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+
+<div class="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
+
+    
+        <img class="w-full" 
+        src={project.project_image} alt="Sunset in the mountains"/>
+    
+    <div class="relative border -mt-16 px-10 pt-5 pb-16 bg-white m-10
+    text-center">
+        <div href="#"
+            class="font-semibold text-lg transition duration-500 
+            ease-in-out inline-block mb-2">
+                {project.project_name}</div>
+        <p class="text-gray-500 text-sm">
+        {project.project_description}
+        </p>
+        {status === 'rejected' && <p className="text-gray-500 text-sm font-bold">
+        Reject reason: {reject_reason}
+        </p>}
+       
+        {hide === 'true' && <p className="text-gray-500 font-bold mt-10">
+        <span className='text-red-800'>Your Project is deleted.. delete your project and start again.</span>
+        </p>}
+       
         
-        <p class="text-left text-[#1B4242] font-extrabold uppercase p-10 mt-10">Project</p>
+
+
+    </div>
+
+</div>
+
+
+
+<p class="text-left text-[#1B4242] font-extrabold uppercase p-10 mt-10">Project Status</p>
         <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
-
-        {project.length === 0 || project.project_name == '' ? 
-        <div className='p-10'>
-            There is no project yet.. <span 
-            className='font-medium text-[rgb(92,131,116)] hover:text-[#1B4242] focus:outline-none focus:underline transition 
-            ease-in-out duration-150'>
-                <Link to='/Add'>Click here to add</Link></span>
-        </div>
-
-        :    
 
         <div class="overflow-x-auto">
             <table class="w-full table-fixed">
@@ -71,7 +124,6 @@ function ProjectSection() {
                 <tr class="bg-gray-100">
                     <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Project Name</th>
                     <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
-                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Details</th>
                     <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Options</th>
                 </tr>
             </thead>
@@ -84,28 +136,24 @@ function ProjectSection() {
                         {status === 'rejected' && <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Rejected</span>}
                         
                     </td>
-                    <td class="py-4 px-6 border-b border-gray-200">
-                        <button className='bg-gray-500 p-1 rounded-md w-16 text-white' onClick={()=>{navigate('/Details')}}>Details</button></td>
                     <td class="py-4 px-6 border-b border-gray-200 flex flex-col gap-y-2 justify-center items-start">
                         <button className='bg-red-500 p-1 rounded-md w-16 text-white' onClick={del}>Delete</button>
                         <button className='bg-gray-500 p-1 rounded-md w-16 text-white'>Edit</button></td>
                 </tr>
 
-                {/* <tr>
-                    <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                    <td class="py-4 px-6 border-b border-gray-200">
-                        <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                    </td>
-                    <td class="py-4 px-6 border-b border-gray-200">d</td>
-                </tr> */}
-
             </tbody>
             </table>
-    </div>}
+    </div>
 
 </div>
+</div>
+
+)
+}
 
         </div>
+
+    <Footer/>
     </>
   )
 }

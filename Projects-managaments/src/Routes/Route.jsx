@@ -8,6 +8,9 @@ import Error from '../Errors/Error'
 import ProjectSection from '../Pages/ProjectSection'
 import Add from '../Pages/Add'
 import Details from '../Pages/Details'
+import StudentList from '../Pages/StudentList'
+import ProjectsList from '../Pages/ProjectsList'
+import ProjectDetails from '../Pages/ProjectDetails'
 
 function Route() {
   return (
@@ -20,6 +23,9 @@ function Route() {
             <R path='/ProjectSection' element={<ProjectSection/>}></R>
             <R path='/Add' element={<Add/>}></R>
             <R path='/Details' element={<Details/>}></R>
+            <R path='/StudentList' element={<StudentList/>}></R>
+            <R path='/ProjectsList' element={<ProjectsList/>}></R>
+            <R path='/ProjectsList/:id' element={<ProjectDetails/>}></R>
             <R path='/*' element={<Error/>}></R>
         </Routes>
     </>

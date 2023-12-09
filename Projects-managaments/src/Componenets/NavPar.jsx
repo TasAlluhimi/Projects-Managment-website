@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import pm from '../assets/pm.jpg'
+import pm from '../assets/p.png'
 
 function NavPar() {
 
@@ -21,6 +21,7 @@ function NavPar() {
         localStorage.clear()
         setIsLoggIn(false)
         setShowUserMenu(false);
+        navigate('/')
     };
 
 
@@ -47,7 +48,7 @@ function NavPar() {
   return (
     <>
        <div>
-           <nav className={`border-gray-200 w-full border-none`}>
+           <nav className={`border-gray-200 w-full border-none bg-[#9EC8B9]`}>
       <div className="flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={pm} 
