@@ -40,7 +40,7 @@ function Home() {
 
 
         <section class="pt-20 md:pt-40">
-            <div class="container mx-auto px-8 lg:flex">
+            <div class="container w-[80%] mx-auto px-8 lg:flex">
                 <div class="text-center lg:text-left lg:w-1/2">
                     <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">Students Projects management</h1>
                     <p class="text-xl lg:text-2xl mt-6 font-light">You can now take the approval for your projects easier and faster.
