@@ -10,6 +10,12 @@ function StudentList() {
     const [search, setSearch] = React.useState('')
     const navigate = useNavigate()
 
+    // const [isAdmin, setIsAdmin] = React.useState(localStorage.getItem('isAdmin'))
+
+    // if (!isAdmin) {
+    //     navigate('/SignIn')
+    // }
+
     const filterBySearch = data.filter((item)=>
     item.name.toLowerCase().includes(search.toLowerCase()))
 

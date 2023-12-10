@@ -417,6 +417,7 @@ function Home() {
         </button>
         </div>
       )}
+<div className='mb-20'></div>
 
         {/* <section class="container mx-auto my-20 py-24 bg-gray-200 rounded-lg text-center">
             <h3 class="text-5xl font-semibold">Ready to grow your business?</h3>

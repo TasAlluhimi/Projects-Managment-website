@@ -18,6 +18,11 @@ function ProjectSection() {
 
     // console.log(userData.id);
 
+
+    // if (!isLoggIn) {
+    //     navigate('/SignIn')
+    // }
+
     React.useEffect(()=>{
         getData()
         
@@ -27,7 +32,7 @@ function ProjectSection() {
     const getData = ()=>{
         axios.get(`https://65730c11192318b7db417733.mockapi.io/users/${userData.id}`)
         .then((res)=>{
-            // console.log(res.data.hide);
+            // console.log(res.data.id);
             setHide(res.data.hide);
             setStatus(res.data.status);
             setReject_reason(res.data.reject_reason);
@@ -67,16 +72,19 @@ function ProjectSection() {
 {project.length === 0 || project.project_name == '' ? 
 
 
-<div className='h-screen'>
+ <section class="container mx-auto my-10 py-24 bg-gray-200 rounded-lg text-center">
+            <h3 class="text-5xl font-semibold">Ready to Add your project?</h3>
+            {/* <p class="mt-8 text-xl font-light">Quis lectus nulla at volutpat diam ut. Enim lobortis scelerisque
+                fermentum dui faucibus in.
+            </p> */}
+            <p class="mt-8">
+                <button type="button"
+                    class="mt-3 py-5 px-16 text-lg bg-[#1B4242] hover:bg-[#5C8374] rounded-md text-white ">
+                        <Link to='/Add'>Let's Start</Link>
+                </button>
+            </p>
+        </section>
 
-
-<div className='p-10'>
-    Add a project first! <span 
-    className='font-medium text-[rgb(92,131,116)] hover:text-[#1B4242] focus:outline-none focus:underline transition 
-    ease-in-out duration-150'>
-        <Link to='/Add'>Click here to add</Link></span>
-</div>
-</div>
 
 :  
 
@@ -103,7 +111,7 @@ function ProjectSection() {
         </p>}
        
         {hide === 'true' && <p className="text-gray-500 font-bold mt-10">
-        <span className='text-red-800'>Your Project is deleted.. delete your project and start again.</span>
+        <span className='text-red-800'>Your Project is deleted from admin.. delete your project and start again.</span>
         </p>}
        
         
@@ -138,7 +146,7 @@ function ProjectSection() {
                     </td>
                     <td class="py-4 px-6 border-b border-gray-200 flex flex-col gap-y-2 justify-center items-start">
                         <button className='bg-red-500 p-1 rounded-md w-16 text-white' onClick={del}>Delete</button>
-                        <button className='bg-gray-500 p-1 rounded-md w-16 text-white'>Edit</button></td>
+                        <button className='bg-gray-500 p-1 rounded-md w-16 text-white' onClick={()=>{navigate(`/Edit/${userData.id}`)}}>Edit</button></td>
                 </tr>
 
             </tbody>
@@ -154,6 +162,19 @@ function ProjectSection() {
         </div>
 
     <Footer/>
+
+    {/* <div className='h-screen'>
+
+
+<div className='p-10'>
+    Add a project first! <span 
+    className='font-medium text-[rgb(92,131,116)] hover:text-[#1B4242] focus:outline-none focus:underline transition 
+    ease-in-out duration-150'>
+        <Link to='/Add'></Link></span>
+</div>
+</div> */}
+
+
     </>
   )
 }

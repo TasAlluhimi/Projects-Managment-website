@@ -5,6 +5,12 @@ import AdminNav from '../Componenets/AdminNav'
 
 function ProjectsList() {
 
+    // const [isAdmin, setIsAdmin] = React.useState(localStorage.getItem('isAdmin'))
+
+    // if (!isAdmin) {
+    //     navigate('/SignIn')
+    // }
+
     const [isLoggIn, setIsLoggIn] = React.useState(localStorage.getItem('isLoggIn'))
     const [data, setData] = React.useState([])
     const navigate = useNavigate()

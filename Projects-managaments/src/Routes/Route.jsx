@@ -11,6 +11,7 @@ import Details from '../Pages/Details'
 import StudentList from '../Pages/StudentList'
 import ProjectsList from '../Pages/ProjectsList'
 import ProjectDetails from '../Pages/ProjectDetails'
+import Edit from '../Pages/Edit'
 
 function Route() {
   return (
@@ -26,6 +27,7 @@ function Route() {
             <R path='/StudentList' element={<StudentList/>}></R>
             <R path='/ProjectsList' element={<ProjectsList/>}></R>
             <R path='/ProjectsList/:id' element={<ProjectDetails/>}></R>
+            <R path='/Edit/:id' element={<Edit/>}></R>
             <R path='/*' element={<Error/>}></R>
         </Routes>
     </>

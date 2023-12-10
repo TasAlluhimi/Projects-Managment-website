@@ -6,13 +6,19 @@ import Footer from '../Componenets/Footer';
 
 function Dashboard() {
 
-    const [data, setData] = React.useState([])
-    const [projectsToShow, setProjectsToShow] = React.useState(3);
-    const navigate = useNavigate()
+    // const [isAdmin, setIsAdmin] = React.useState(localStorage.getItem('isAdmin'))
 
-    const loadMoreProjects = () => {
-        setProjectsToShow((prev) => prev + 3);
-      };
+    // console.log(isAdmin);
+    
+    // if (isAdmin === null || !isAdmin) {
+    //     navigate('/SignIn')
+    // }
+    
+    // else{
+    //     navigate('/SignIn')
+    // }
+
+    const [data, setData] = React.useState([])
 
     React.useEffect(()=>{
         getData()
@@ -34,11 +40,11 @@ function Dashboard() {
 
             {/* Content Body  */}
             <div className="flex-1 overflow-auto p-4 bg-[#9ec8b92e]">
-              <h1 className="text-2xl font-semibold text-center mt-10">Manage the students list and projects list</h1>
+              {/* <h1 className="text-2xl font-semibold text-center mt-10">Manage the students list and projects list</h1> */}
               
               {/* animated cards */}
 
-        <div className='flex justify-center flex-wrap lg:gap-36 md:gap-10 max-sm:gap-10'>
+        <div className='flex justify-center flex-wrap lg:gap-80 md:gap-10 max-sm:gap-10 lg:h-[70vh] max-sm:h-screen '>
 
         <div class="relative flex flex-col justify-center overflow-hidden py-6 sm:py-12">
         <Link to='/ProjectsList'>
@@ -90,35 +96,9 @@ function Dashboard() {
     </Link>
 </div>
         </div>
-        <h3 class="text-3xl font-semibold leading-tight mt-52 text-center">Approved Projects</h3>
-        <div className='flex justify-center w-[100%] flex-wrap mt-20 lg:gap-5 md:gap-10 max-sm:gap-10'>
 
-        {data.slice(0, projectsToShow).map((item) => (
-  <div key={item.id} className="relative w-96 isolate flex flex-col justify-end overflow-hidden rounded-2xl 
-  px-8 pb-8 pt-40 max-w-sm mx-auto mt-24 hover:bg-opacity-70 transition duration-300 ease-in-out hover:scale-105">
-    <img src={item.project.project_image} alt={item.project.project_name} className="absolute inset-0 h-96 w-full object-cover" />
-    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-    <h3 className="z-10 mt-3 text-3xl font-bold text-white">{item.project.project_name}</h3>
-    <div className="z-10 mt-3 text-sm font-bold text-white">
-      {item.project.project_description}
-    </div>
-  </div>
-))}   
-
-        </div>
-
-        {projectsToShow < data.length && (
-            <div className='flex items-center justify-center mt-20'>
-        <button onClick={loadMoreProjects}
-        className="px-3 py-2.5 leading-none text-white 
-              rounded-lg focus:outline-none focus:shadow-outline 
-              bg-gradient-to-b bg-[#1B4242] hover:bg-[#4299E1]">
-          See More
-        </button>
-        </div>
-      )}
-
-<div className='p-20'></div>
+            
+            
             </div>
            
           <Footer/>
