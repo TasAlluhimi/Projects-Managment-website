@@ -65,6 +65,7 @@ function ProjectSection() {
         <NavPar/>
 
         <div>
+            
         <p class="text-left text-[#1B4242] font-extrabold uppercase p-10 mt-10">Project Details</p>
 
 {/* <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10"> */}
@@ -121,9 +122,19 @@ function ProjectSection() {
 
 </div>
 
+<div>
+    
+</div>
+
+<div className='flex mt-10 p-10 items-center'>
+<div class="text-left text-[#1B4242] font-extrabold uppercase mx-1">Project Status</div> <div className='text-left'><img src="https://cdn-icons-png.flaticon.com/128/471/471664.png" 
+alt="" 
+title='Every student have one project, if the admin is reject the idea or delete it
+you have to delete your project and start over.' 
+className="w-5 h-5 " /></div>
+</div>
 
 
-<p class="text-left text-[#1B4242] font-extrabold uppercase p-10 mt-10">Project Status</p>
         <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
 
         <div class="overflow-x-auto">
