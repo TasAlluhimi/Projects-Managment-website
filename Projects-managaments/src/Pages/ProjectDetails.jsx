@@ -5,11 +5,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 function ProjectDetails() {
 
-    // const [isAdmin, setIsAdmin] = React.useState(localStorage.getItem('isAdmin'))
+    const [isAdmin, setIsAdmin] = React.useState(localStorage.getItem('isAdmin'))
 
-    // if (!isAdmin) {
-    //     navigate('/SignIn')
-    // }
+    if (!isAdmin) {
+        navigate('/SignIn')
+    }
 
     const [inputs, setInputs] = React.useState({
         project_name: '',
@@ -17,6 +17,7 @@ function ProjectDetails() {
         project_image: '',
         
       });
+      
       const [student, setStudent] = React.useState('')
       const [reject_reason, setReject_reason] = React.useState('')
       const [status, setStatus] = React.useState('')

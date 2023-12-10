@@ -19,9 +19,9 @@ function ProjectSection() {
     // console.log(userData.id);
 
 
-    // if (!isLoggIn) {
-    //     navigate('/SignIn')
-    // }
+    if (!isLoggIn) {
+        navigate('/SignIn')
+    }
 
     React.useEffect(()=>{
         getData()

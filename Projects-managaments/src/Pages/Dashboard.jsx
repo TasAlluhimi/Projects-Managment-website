@@ -6,14 +6,14 @@ import Footer from '../Componenets/Footer';
 
 function Dashboard() {
 
-    // const [isAdmin, setIsAdmin] = React.useState(localStorage.getItem('isAdmin'))
+    const [isAdmin, setIsAdmin] = React.useState(localStorage.getItem('isAdmin'))
 
-    // console.log(isAdmin);
+    console.log(isAdmin);
     
-    // if (isAdmin === null || !isAdmin) {
-    //     navigate('/SignIn')
-    // }
-    
+    if (isAdmin === null || !isAdmin) {
+        navigate('/SignIn')
+    }
+
     // else{
     //     navigate('/SignIn')
     // }
