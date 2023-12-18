@@ -23,7 +23,7 @@ function ProjectsList() {
         axios.get(`https://65730c11192318b7db417733.mockapi.io/users`)
         .then((res)=>{
             // console.log(res.data);
-            const allProjects = res.data.filter((item)=>item.hide === 'false')
+            const allProjects = res.data.filter((item)=>item.hide === 'false' && item.project.project_name !== '')
             // console.log(allProjects);
             setData(allProjects);
         })
@@ -63,7 +63,7 @@ function ProjectsList() {
                     </tr>
                 </thead>
 
-        {data.map((item)=>(
+        {[...data].reverse().map((item)=>(
             
                 <tbody class="bg-white">
                     <tr>

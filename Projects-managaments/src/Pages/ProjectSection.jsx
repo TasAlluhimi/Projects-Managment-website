@@ -73,15 +73,12 @@ function ProjectSection() {
 {project.length === 0 || project.project_name == '' ? 
 
 
- <section class="container mx-auto my-10 py-24 bg-gray-200 rounded-lg text-center">
+ <section class="container w-[70%] mx-auto my-10 py-24 bg-gray-200 rounded-lg text-center">
             <h3 class="text-5xl font-semibold">Ready to Add your project?</h3>
-            {/* <p class="mt-8 text-xl font-light">Quis lectus nulla at volutpat diam ut. Enim lobortis scelerisque
-                fermentum dui faucibus in.
-            </p> */}
             <p class="mt-8">
                 <button type="button"
                     class="mt-3 py-5 px-16 text-lg bg-[#1B4242] hover:bg-[#5C8374] rounded-md text-white ">
-                        <Link to='/Add'>Let's Start</Link>
+                        <Link to='/Add'>Let's Start!</Link>
                 </button>
             </p>
         </section>

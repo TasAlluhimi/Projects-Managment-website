@@ -40,7 +40,7 @@ function Home() {
 
 
         <section class="pt-20 md:pt-40">
-            <div class="container w-[80%] mx-auto px-8 lg:flex">
+            <div class="container w-[90%] mx-auto px-8 lg:flex">
                 <div class="text-center lg:text-left lg:w-1/2">
                     <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">Students Projects management</h1>
                     <p class="text-xl lg:text-2xl mt-6 font-light">You can now take the approval for your projects easier and faster.
@@ -392,10 +392,10 @@ function Home() {
         {/* animated cards */}
 
         <h3 class="text-3xl font-semibold leading-tight mt-52 text-center">Approved Projects</h3>
-        <div className='flex justify-center w-[100%] flex-wrap mt-20 lg:gap-5 md:gap-10 max-sm:gap-10'>
+        <div className='flex justify-center w-[100%] flex-wrap mt-20 lg:gap-5 md:gap-10 max-sm:gap-10 px-24'>
 
         {data.slice(0, projectsToShow).map((item) => (
-  <div key={item.id} className="relative w-96 isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-24 hover:bg-opacity-70 transition duration-300 ease-in-out hover:scale-105">
+  <div key={item.id} className="relative w-80 isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-24 hover:bg-opacity-70 transition duration-300 ease-in-out hover:scale-105">
     <img src={item.project.project_image} alt={item.project.project_name} className="absolute inset-0 h-96 w-full object-cover" />
     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
     <h3 className="z-10 mt-3 text-3xl font-bold text-white">{item.project.project_name}</h3>

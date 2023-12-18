@@ -13,11 +13,11 @@ function StudentList() {
     const [isAdmin, setIsAdmin] = React.useState(localStorage.getItem('isAdmin'))
 
     if (!isAdmin) {
-        navigate('/SignIn')
+        window.open('/', '_self')
     }
 
     const filterBySearch = data.filter((item)=>
-    item.name.toLowerCase().includes(search.toLowerCase()))
+    item.name && item.name.toLowerCase().includes(search.toLowerCase()))
 
     React.useEffect(()=>{
         getData()
