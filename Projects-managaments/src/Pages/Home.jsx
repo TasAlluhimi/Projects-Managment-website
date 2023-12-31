@@ -389,10 +389,10 @@ function Home() {
 
        
 
-        {/* animated cards */}
+        {/* cards */}
 
         <h3 class="text-3xl font-semibold leading-tight mt-52 text-center">Approved Projects</h3>
-        <div className='flex justify-center w-[100%] flex-wrap mt-20 lg:gap-5 md:gap-10 max-sm:gap-10 px-24'>
+        <div className='flex justify-center w-[100%] flex-wrap mt-20 lg:gap-5 md:gap-10 max-sm:gap-10 px-24 xl:gap-8'>
 
         {data.slice(0, projectsToShow).map((item) => (
   <div key={item.id} className="relative w-80 isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-24 hover:bg-opacity-70 transition duration-300 ease-in-out hover:scale-105">
